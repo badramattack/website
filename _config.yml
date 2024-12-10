@@ -16,6 +16,10 @@
 # in the templates via {{ site.myvariable }}.
 title: 'BadRAM'
 subtitle: 'Breaching Processor Security via Rogue Memory Modules'
+
+repository: "badramattack/website"
+url: "https://badram.eu"
+
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-cayman
