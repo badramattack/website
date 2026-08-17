@@ -553,7 +553,16 @@ To mitigate the BadRAM vulnerability, <span class="fw-medium">AMD has issued <a 
 
 ### Follow-up Research
 
-<p class="text-muted mb-4">This section tracks subsequent research building on BadRAM, including both our own work and independent research by the wider community.</p>
+<p class="text-muted mb-4">
+  This section tracks subsequent research building on BadRAM, including both our own work and independent research by the wider community.<br>
+  <span class="small">
+    <em>Missing a paper?</em> Feel free to open a 
+    <a href="https://github.com/badramattack/website" target="_blank" class="text-decoration-none fw-medium" style="color: #052c65;">
+      <i class="fa-solid fa-code-pull-request fa-sm"></i> pull request
+    </a> 
+    if you want your own work using BadRAM to be featured here.
+  </span>
+</p>
 
 <div class="accordion accordion-flush" id="accordionFollowUp">
 
