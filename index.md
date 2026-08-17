@@ -550,3 +550,197 @@ To mitigate the BadRAM vulnerability, <span class="fw-medium">AMD has issued <a 
     </div>
   </div>
 </div>
+
+### Follow-up Research
+
+<p class="text-muted mb-4">This section tracks subsequent research building on BadRAM, including both our own work and independent research by the wider community.</p>
+
+<div class="accordion accordion-flush" id="accordionFollowUp">
+
+  <!-- Download More RAM -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupOne">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupOne" aria-expanded="false" aria-controls="collapseFollowupOne">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Aug '26</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://www.usenix.org/system/files/usenixsecurity26-collins.pdf" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>Download More RAM</strong></a> 
+            (USENIX Sec '26): aliasing breaks Windows security
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupOne" class="accordion-collapse collapse" aria-labelledby="headingFollowupOne" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">Download More RAM: Dismantling Windows Operating System Defences with Mischievous Memory</div>
+          <div class="followup-authors">Sam Collins<sup>1</sup>, Tom Chothia<sup>1</sup>, William Burgess<sup>1</sup>, Marius Muench<sup>1</sup>, David Oswald<sup>2</sup></div>
+          <div class="followup-affiliations">
+            <i class="fas fa-university"></i> <sup>1</sup> University of Birmingham &nbsp;&nbsp; 
+            <sup>2</sup> Durham University
+          </div>
+          <div class="followup-desc">Virtualisation-Based Security (VBS) is the cornerstone of modern Windows desktop defences, relied upon by both the operating system and third-party software, with a virtualised secure kernel providing strong security guarantees against even privileged attackers. In this paper, we introduce Download More RAM, a software-only memory aliasing attack that breaks these guarantees without physical access. On systems running the most common consumer DIMMs, our attack allows arbitrary memory read/write, letting a privileged user compromise the OS at every level, including the secure kernel, Hypervisor Enforced Code Integrity (HVCI), and all defences it provides. With this access we develop a series of case study attacks targeting VBS-protected processes, Windows Defender, anti-virus & EDR software, and game anti-cheats. Our work breaks the strongest security guarantees offered by the Windows OS, questioning key trust assumptions on such systems. Microsoft have assigned CVE-2026-23670 to our findings and issued a patch that partially mitigates our attack.</div>
+          <a href="https://www.usenix.org/system/files/usenixsecurity26-collins.pdf" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jailbreaking the AMD Secure Processor -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupTwo">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupTwo" aria-expanded="false" aria-controls="collapseFollowupTwo">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Aug '26</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://www.usenix.org/system/files/usenixsecurity26-shen.pdf" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>Jailbreaking the AMD SP</strong></a> 
+            (USENIX Sec '26): aliasing enables SEV-SNP live analysis
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupTwo" class="accordion-collapse collapse" aria-labelledby="headingFollowupTwo" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">Jailbreaking the AMD Secure Processor: Enabling Live Analysis of SEV-SNP’s Undocumented Security Boundaries</div>
+          <div class="followup-authors">Muyan Shen<sup>1,2</sup>, Hongzhan Ma<sup>1</sup>, Ketong Shang<sup>1</sup>, Ruofei Qu<sup>1</sup>, Yu Qin<sup>1</sup>, Dengguo Feng<sup>1</sup></div>
+          <div class="followup-affiliations">
+            <i class="fas fa-university"></i> <sup>1</sup> Institute of Software, Chinese Academy of Sciences &nbsp;&nbsp; 
+            <sup>2</sup> School of Cryptology, University of Chinese Academy of Sciences 
+          </div>
+          <div class="followup-desc">AMD's Secure Nested Paging (SEV-SNP) protects virtual machines using its hardware root of trust, the AMD Secure Processor (ASP). However, its security relies on complex, opaque firmware features, such as a dynamic hot-patching mechanism, that create attack surfaces shielded from independent scrutiny. To overcome this "black-box" challenge, we present ASPBreaker, the first practical, fully deterministic jailbreak of the ASP, achieved by exploiting a novel combination of memory aliasing and time-of-check-to-time-of-use (TOCTOU) vulnerability.<br><br>
+          Using this jailbreak as a tool for live analysis, we demonstrate how achieving arbitrary code execution on a vulnerable firmware version can be used to subvert the security of a subsequent, fully-patched one. Our analysis revealed critical flaws, enabling two practical attacks against the latest firmware: one that allows an adversary to decrypt the memory of a virtual machine and another that bypasses existing mitigations to forge attestation reports. Our findings, which were responsibly disclosed, demonstrate a fundamental break in the forward-security model of SEV-SNP and highlight the critical need for independent auditing of opaque firmware boundaries.</div>
+          <a href="https://www.usenix.org/system/files/usenixsecurity26-shen.pdf" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DisARMed -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupFive">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupFive" aria-expanded="false" aria-controls="collapseFollowupFive">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Aug '26</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://www.usenix.org/system/files/woot26-henes.pdf" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>DisARMed</strong></a> 
+            (WOOT '26): attacking ARM TrustZone from userspace
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupFive" class="accordion-collapse collapse" aria-labelledby="headingFollowupFive" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">DisARMed: Attacking ARM TrustZone from Userspace with Memory Aliasing</div>
+          <!-- Notice the superscripts mapping authors to institutions -->
+          <div class="followup-authors">Jacqueline Henes<sup>* 1</sup>, Matthew Bowden<sup>* 1</sup>, Mihai Ordean<sup>1</sup>, David Oswald<sup>2</sup></div>
+          <div class="followup-affiliations">
+            <i class="fas fa-university"></i> <sup>1</sup> University of Birmingham &nbsp;&nbsp; 
+            <i class="fas fa-university"></i> <sup>2</sup> Durham University
+          </div>
+          <div class="followup-desc">Modern systems security relies on memory isolation mechanisms like trusted execution environments and kernel privilege separation to enforce strong isolation boundaries. However, many of these mechanisms place implicit trust in system memory, leaving them open to hardware attacks on external DRAM. In this paper, we introduce DisARMed, an attack on ARM processors that exploits memory aliasing techniques from userspace, compromising both the Linux kernel and ARM TrustZone. We demonstrate for the first time that memory aliasing attacks are practical for adversaries that do not have access to the kernel. We additionally implement and evaluate a mitigation for DisARMed, using a lightweight alias detection mechanism. Our solution has minimal impact on boot time of about one second. Finally, we discuss the wider applicability of DisARMed, considering other relevant potential attack vectors, applicable memory massaging techniques, and security mechanisms that may be affected.</div>
+          <a href="https://www.usenix.org/system/files/woot26-henes.pdf" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Physical Memory Please -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupThree">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupThree" aria-expanded="false" aria-controls="collapseFollowupThree">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Feb '26</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://ojs.ub.rub.de/index.php/uASC/article/view/12712/12391" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>Physical Memory Please</strong></a> 
+            (uASC '26): aliasing breaks RISC-V PMP
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupThree" class="accordion-collapse collapse" aria-labelledby="headingFollowupThree" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">Physical Memory Please: Practical Memory-Aliasing Attacks on RISC-V PMP</div>
+          <div class="followup-authors">Antonis Louka<sup>1</sup>, Jesse De Meulemeester<sup>2</sup>, Steven Keuchel<sup>1</sup>, Ingrid Verbauwhede<sup>2</sup>, Jo Van Bulck<sup>1</sup></div>
+          <div class="followup-affiliations">
+            <i class="fas fa-university"></i> <sup>1</sup> DistriNet, KU Leuven &nbsp;&nbsp; 
+            <sup>2</sup> COSIC, KU Leuven 
+          </div>
+          <div class="followup-desc">Recent years have seen a surge in security architectures builton the open RISC-V instruction set architecture. A key enabler of this trend has been the standardized Physical Memory Protection (PMP) extension, safeguarding critical firmware and forming the foundation  for, amongst others, versatile Trusted Execution Environments (TEEs). However, while production TEEs on popular x86 and Arm platforms have undergone extensive security vetting, emerging RISC-V TEEshave received far less scrutiny.This paper studies the impact of recent memory-aliasingattacks, originally demonstrated on x86, within the RISC-Vecosystem. We show that a practical memory-aliasing setupcan fully bypass PMP-based isolation, enabling arbitrary read and write access to protected memory regions. Using this primitive, we demonstrate end-to-end attacks on the popular RISC-V Keystone TEE, achieving full enclave memory disclosure and, ultimately, completely undermining remote attestation guarantees by extracting the long-term platform measurement key. Leveraging open-source RISC-V firmware, we further develop a practical mitigation that detects rogue DIMM configurations at boot time, effectively preventing software-based memory-aliasing attacks. Our findings nuance the trust in PMP-based isolation and highlight how microarchitectural attack vectors from established architectures like x86 can translate to emerging RISC-V settings.</div>
+          <a href="https://ojs.ub.rub.de/index.php/uASC/article/view/12712/12391" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BROL -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupFour">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupFour" aria-expanded="false" aria-controls="collapseFollowupFour">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Feb '26</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://ojs.ub.rub.de/index.php/uASC/article/view/12708/12394" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>BROL</strong></a> 
+            (uASC '26): cache-only execution for software protection
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupFour" class="accordion-collapse collapse" aria-labelledby="headingFollowupFour" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">BROL: Cache-Only Execution for Software Protection</div>
+          <div class="followup-authors">Ruben Mechelinck, Stijn Volckaert</div>
+          <div class="followup-affiliations"><i class="fas fa-university"></i> DistriNet, KU Leuven</div>
+          <div class="followup-desc">Industrial-scale reverse engineering is a growing problem for manufacturers of specialized equipment and machines. Both software and hardware intellectual property form the foundation of these manufacturer's competitive advantage and revenue, making them attractive targets for malicious competitors. The produced systems typically have limited resources and lack built-in protection mechanisms for the software it runs, leaving the software vulnerable to unauthorized duplication and reverse engineering. We present BROL, a technique that protects software against reverse engineering and piracy by binding it to a specific machine and hiding its code in the CPU's instruction cache. BROL loads the protected code from disk, decrypts it with a machine-specific key, and uses physical memory aliasing and targeted cache eviction to make the code unavailable in any level of the memory hierarchy except for the instruction cache. We implemented BROL for x86 and ARMv7 platforms and show that it reliably protects code without relying on dedicated security hardware to achieve maximum security. However, our evaluation also shows that BROL has non-trivial constraints that limit its applicability.</div>
+          <a href="https://ojs.ub.rub.de/index.php/uASC/article/view/12708/12394" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Battering RAM -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFollowupSix">
+      <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFollowupSix" aria-expanded="false" aria-controls="collapseFollowupSix">
+        <div class="d-flex align-items-center w-100 pe-3">
+          <div class="followup-date">Sep '25</div>
+          <div class="followup-divider">|</div>
+          <div class="followup-icon"><i class="fas fa-book"></i></div>
+          <div class="text-start">
+            <a href="https://batteringram.eu/batteringram.pdf" onclick="event.stopPropagation();" class="followup-title-link" target="_blank" title="Download PDF"><strong>Battering RAM</strong></a> 
+            (S&P '26): hardware aliasing breaks SGX and SEV-SNP
+          </div>
+        </div>
+      </div>
+    </h2>
+    <div id="collapseFollowupSix" class="accordion-collapse collapse" aria-labelledby="headingFollowupSix" data-bs-parent="#accordionFollowUp">
+      <div class="accordion-body followup-body">
+        <div class="followup-card">
+          <div class="followup-title">Battering RAM: Low-Cost Interposer Attacks on Confidential Computing via Dynamic Memory Aliasing</div>
+          <div class="followup-authors">Jesse De Meulemeester<sup>1</sup>, David Oswald<sup>2</sup>, Ingrid Verbauwhede<sup>1</sup>, Jo Van Bulck<sup>3</sup></div>
+          <div class="followup-affiliations">
+            <i class="fas fa-university"></i> <sup>1</sup> COSIC, KU Leuven &nbsp;&nbsp; 
+            <sup>2</sup> University of Birmingham & Durham University &nbsp;&nbsp; 
+            <sup>3</sup> DistriNet, KU Leuven 
+          </div>
+          <div class="followup-desc">Confidential computing, powered by trusted execution environments (TEEs) like Intel SGX/TDX and AMD SEVSNP, is now widely available from major cloud providers. At the core of these technologies is hardware-level memory encryption to protect against privileged attackers and physical threats such as bus snooping and cold boot attacks. Recent extensions add access-control checks to defend against software-based ciphertext manipulation and aliasing attacks. In this work, we challenge the protection modern memory encryption technologies offer against physical adversaries by building a low-cost (<$50) DDR4 interposer that dynamically tampers with address lines to bypass aliasing checks in current TEEs. We demonstrate how the runtime nature of our interposer bypasses boot-time firmware mitigations introduced by AMD and Intel in response to software-based memory aliasing attacks. Using our interposer, we present the first attack on Scalable SGX’s single-key domain, achieving arbitrary plaintext read/write access and extracting SGX’s platform provisioning key, thereby dismantling trust in remote attestation. We further re-enable a full attestation breach on up-to-date AMD SEV-SNP platforms, bypassing recent firmware defenses against static aliases. Our results challenge core assumptions about encrypted memory security and highlight critical shortcomings in the performance-security trade-offs of current confidential computing systems. Costing orders of magnitude less than commercial DRAM interposers, our device underscores the need for stronger protections against low-cost physical attacks in scalable TEE designs.</div>
+          <a href="https://batteringram.eu/batteringram.pdf" class="btn btn-sm btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Read Full Paper</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
